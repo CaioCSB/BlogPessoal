@@ -12,11 +12,11 @@ export class PostagemService {
   constructor(private http: HttpClient) { }
 
   token = {
-    headers: new HttpHeaders().set('Authorization', environment.token)
+    headers: new HttpHeaders().set('Authorization', localStorage.getItem('token'))
   }
 
   getAllPostagens() {
-    return this.http.get('http://localhost:9000/postagens', this.token)
+    return this.http.get('http://localhost:8080/postagens', this.token)
   }
 
   getByIdPostagem(id: number) {
